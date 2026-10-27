@@ -1,20 +1,21 @@
-# TechLab Pro
+TeqGastos - TEQMED SPA
 
-Aplicación móvil nativa en Android para la gestión y registro de equipos tecnológicos en laboratorios académicos.
+Aplicación móvil nativa en Android para el registro y rendición de gastos en terreno de los técnicos de servicio técnico de TEQMED SPA.
 
-## Integrantes
+Integrantes
 - Alvaro Salazar
 - Martin Ortiz
 
-## Funcionalidades e Implementación
-- **Registro de Equipos:** Validación de código en tiempo real con expresiones regulares (`XX00XX`).
-- **Recursos Nativos:** Selección y renderizado de fotografías usando la galería nativa de Android (`GetContent`).
-- **Persistencia Local:** Base de datos relacional mediante Room DB.
-- **UI & Arquitectura:** Interfaz reactiva desarrollada en Jetpack Compose (Material 3) bajo el patrón MVVM.
+Descripción de la Solución
+Permite a los técnicos que se desplazan a clínicas y hospitales del Gran Concepción registrar sus comprobantes de gastos (peajes, alimentación, insumos) en el momento en que ocurren, adjuntando la fotografía del documento y garantizando la persistencia de datos local para operar en zonas sin conexión a internet.
 
-## Pasos para Ejecutar
-1. Clonar el repositorio:
-   `git clone https://github.com/alvarosalazarxd/techlab-pro-android.git`
-2. Abrir el proyecto en **Android Studio** (versión Iguana o superior recomendada).
-3. Sincronizar las dependencias de Gradle.
-4. Ejecutar en un emulador o dispositivo físico con **Android 8.0 (API 26)** o superior.
+Tecnologías e Implementación
+- UI: Jetpack Compose con componentes de Material Design 3.
+- Arquitectura:*MVVM (Model-View-ViewModel) con estado reactivo.
+- Persistencia Local (Offline-first): Room DB (SQLite) con Coroutines y Flow.
+- Recursos Nativos:*Integración con la galería del dispositivo (`ActivityResultContracts.GetContent`) para captura y procesamiento de imágenes.
+- Validaciones: Control de formato de folios mediante Expresiones Regulares (`Regex`).
+Ejecución
+1. Clonar el repositorio.
+2. Abrir el proyecto en Android Studio (Iguana o superior).
+3. Sincronizar Gradle y ejecutar en un emulador o dispositivo físico con Android API 26+.
