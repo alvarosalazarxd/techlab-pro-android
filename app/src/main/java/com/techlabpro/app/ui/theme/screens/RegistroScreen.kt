@@ -40,10 +40,10 @@ fun RegistroScreen(
     }
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("TechLab Pro - Registro") }) },
+        topBar = { TopAppBar(title = { Text("TeqGastos - TEQMED SPA") }) },
         floatingActionButton = {
             FloatingActionButton(onClick = onNavegarALista) {
-                Icon(Icons.Default.Menu, contentDescription = "Ver lista de registros")
+                Icon(Icons.Default.Menu, contentDescription = "Ver lista de rendiciones")
             }
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
@@ -59,7 +59,7 @@ fun RegistroScreen(
             OutlinedTextField(
                 value = viewModel.codigo,
                 onValueChange = { viewModel.onCodigoChanged(it) },
-                label = { Text("Código de Equipo (XX00XX)") },
+                label = { Text("Código / Folio Boleta (XX00XX)") },
                 leadingIcon = { Icon(Icons.Default.Code, contentDescription = null) },
                 trailingIcon = {
                     if (viewModel.codigoError != null) {
@@ -76,7 +76,7 @@ fun RegistroScreen(
             OutlinedTextField(
                 value = viewModel.marca,
                 onValueChange = { viewModel.onMarcaChanged(it) },
-                label = { Text("Marca") },
+                label = { Text("Categoría / Proveedor (Ej: Peaje, Alimentación)") },
                 leadingIcon = { Icon(Icons.Default.Devices, contentDescription = null) },
                 isError = viewModel.marcaError != null,
                 supportingText = {
@@ -85,14 +85,14 @@ fun RegistroScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            // Botón para activar el recurso nativo (Seleccionar Foto)
+            // Botón para activar el recurso nativo (Seleccionar Foto del Comprobante)
             OutlinedButton(
                 onClick = { launcherGaleria.launch("image/*") },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(Icons.Default.Image, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(if (viewModel.imagenUri == null) "Adjuntar Foto del Equipo" else "Foto Seleccionada ✓")
+                Text(if (viewModel.imagenUri == null) "Adjuntar Foto de Boleta / Comprobante" else "Comprobante Seleccionado ✓")
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -106,7 +106,7 @@ fun RegistroScreen(
                     onClick = { viewModel.guardarEquipo() },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("Registrar Equipo")
+                    Text("Registrar Rendición de Gasto")
                 }
             }
         }

@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Devices
+import androidx.compose.material.icons.filled.Receipt
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -30,12 +30,12 @@ fun ListaEquiposScreen(
     val equipos by viewModel.listaEquipos.collectAsState()
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Equipos Registrados") }) },
+        topBar = { TopAppBar(title = { Text("Historial de Rendiciones") }) },
         floatingActionButton = {
             ExtendedFloatingActionButton(
                 onClick = onNavegarARegistro
             ) {
-                Text("Nuevo Registro")
+                Text("Nueva Rendición")
             }
         }
     ) { paddingValues ->
@@ -46,7 +46,7 @@ fun ListaEquiposScreen(
                     .padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
-                Text("No hay equipos registrados aún.")
+                Text("No hay gastos registrados aún.")
             }
         } else {
             LazyColumn(
@@ -98,7 +98,7 @@ fun TarjetaEquipo(equipo: EquipoEntity) {
             if (bitmap != null) {
                 Image(
                     bitmap = bitmap.asImageBitmap(),
-                    contentDescription = "Foto del equipo",
+                    contentDescription = "Foto del comprobante",
                     modifier = Modifier
                         .size(60.dp)
                         .clip(RoundedCornerShape(8.dp)),
@@ -106,7 +106,7 @@ fun TarjetaEquipo(equipo: EquipoEntity) {
                 )
             } else {
                 Icon(
-                    imageVector = Icons.Default.Devices,
+                    imageVector = Icons.Default.Receipt,
                     contentDescription = null,
                     modifier = Modifier.size(40.dp)
                 )
@@ -115,13 +115,13 @@ fun TarjetaEquipo(equipo: EquipoEntity) {
             Spacer(modifier = Modifier.width(16.dp))
 
             Column {
-                Text(text = "Código: ${equipo.codigo}", style = MaterialTheme.typography.titleMedium)
+                Text(text = "Folio: ${equipo.codigo}", style = MaterialTheme.typography.titleMedium)
                 Spacer(modifier = Modifier.height(2.dp))
-                Text(text = "Marca: ${equipo.marca}", style = MaterialTheme.typography.bodyMedium)
-                Text(text = "Modelo: ${equipo.modelo}", style = MaterialTheme.typography.bodySmall)
-                Text(text = "Tipo: ${equipo.tipoUsuario}", style = MaterialTheme.typography.bodySmall)
+                Text(text = "Categoría/Proveedor: ${equipo.marca}", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "Detalle: ${equipo.modelo}", style = MaterialTheme.typography.bodySmall)
+                Text(text = "Tipo Rendición: ${equipo.tipoUsuario}", style = MaterialTheme.typography.bodySmall)
                 Spacer(modifier = Modifier.height(2.dp))
-                Text(text = "Ingreso: ${equipo.fechaIngreso}", style = MaterialTheme.typography.labelSmall)
+                Text(text = "Fecha Gasto: ${equipo.fechaIngreso}", style = MaterialTheme.typography.labelSmall)
             }
         }
     }
