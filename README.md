@@ -11,9 +11,9 @@ Permite a los técnicos que se desplazan a clínicas y hospitales del Gran Conce
 
 Tecnologías e Implementación
 - UI: Jetpack Compose con componentes de Material Design 3.
-- Arquitectura:*MVVM (Model-View-ViewModel) con estado reactivo.
+- Arquitectura:MVVM (Model-View-ViewModel) con estado reactivo.
 - Persistencia Local (Offline-first): Room DB (SQLite) con Coroutines y Flow.
-- Recursos Nativos:*Integración con la galería del dispositivo (`ActivityResultContracts.GetContent`) para captura y procesamiento de imágenes.
+- Recursos Nativos:Integración con la galería del dispositivo (`ActivityResultContracts.GetContent`) para captura y procesamiento de imágenes.
 - Validaciones: Control de formato de folios mediante Expresiones Regulares (`Regex`).
 Ejecución
 1. Clonar el repositorio.
